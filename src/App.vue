@@ -65,7 +65,8 @@
           this.$store.commit('postRequest', {
             uri: '/clearAllMyGoods',
             data: {
-              belongId: userInfo.userId
+              belongId: userInfo.userId,
+              list: this.$store.state.shopData
             },
             callBack: (res) => {
               this.$store.state.shopData = [];

@@ -9,7 +9,6 @@
     <preview v-if="type != 'news'" :previewList="imgInfo"/>
     <div class="mainContent">
       <div v-html="newsInfo.content"></div>
-      <div v-html="newsInfo.content2"></div>
     </div>
     <Comment :id="$route.query.id" />
   </div>

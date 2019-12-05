@@ -15,6 +15,8 @@ import GoodsCount from './components/goods/GoodsCount.vue';
 import registed from './components/user/registed.vue';
 import Login from './components/user/login.vue';
 import GoodsPayed from './components/goods/GoodsPayed.vue';
+import movieList from './components/movie/movieList.vue';
+import movieInfo from './components/movie/movieInfo.vue';
 
 let routes = [
   {
@@ -69,6 +71,16 @@ let routes = [
     path: "/home/goodsComment",
     component: GoodsComment,
     name: "goodsComment"
+  },
+  {
+    path: "/home/movieList",
+    component: movieList,
+    name: "movieList"
+  },
+  {
+    path: "/home/movieInfo",
+    component: movieInfo,
+    name: "movieInfo"
   },
   {
     path: "/shopping/goodsCount",

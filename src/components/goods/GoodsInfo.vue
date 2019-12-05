@@ -91,7 +91,8 @@
               data: {
                 belongId: this.userInfo.userId,
                 goodsId: this.goodsInfo.id,
-                count: this.payNumber
+                count: this.payNumber,
+                content_id: this.goodsInfo.content_id
               },
               callBack: (res) => {
                 if (res.data.data == 1) {

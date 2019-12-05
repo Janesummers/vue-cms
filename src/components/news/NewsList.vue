@@ -116,25 +116,25 @@
       }
 
       let getData = () => {
-        if (localStorage.getItem("newsList")) {
-          let newsList = JSON.parse(localStorage.getItem("newsList"));
+        // if (localStorage.getItem("newsList")) {
+          // let newsList = JSON.parse(localStorage.getItem("newsList"));
           // console.log(scrollTop);
-          this.loading = false;
-          this.newsList = newsList.data;
-          this.pageNo = newsList.pageNo;
+          // this.loading = false;
+          // this.newsList = newsList.data;
+          // this.pageNo = newsList.pageNo;
           
-          this.$nextTick(function(){
-              console.log('数据已经更新');
-          });
-          this.$nextTick(function(){
-              console.log('v-for渲染已经完成')
-              let scrollTop = sessionStorage.getItem("scrollTop");
-              // console.log(document.getElementsByClassName("container")[0].scrollTop);
-              setTimeout(() => {
-                document.getElementsByClassName("container")[0].scrollTop = scrollTop;
-              }, 100)
-          })
-        } else {
+          // this.$nextTick(function(){
+          //     console.log('数据已经更新');
+          // });
+          // this.$nextTick(function(){
+          //     console.log('v-for渲染已经完成')
+          //     let scrollTop = sessionStorage.getItem("scrollTop");
+          //     // console.log(document.getElementsByClassName("container")[0].scrollTop);
+          //     setTimeout(() => {
+          //       document.getElementsByClassName("container")[0].scrollTop = scrollTop;
+          //     }, 100)
+          // })
+        // } else {
           this.$store.commit('postRequest', {
             uri: '/getNewsByPage',
             data: {
@@ -147,11 +147,11 @@
               let newsList = {};
               newsList.data = res.data.data;
               newsList.pageNo = 1;
-              localStorage.setItem("newsList", JSON.stringify(newsList));
+              // localStorage.setItem("newsList", JSON.stringify(newsList));
               this.newsList = res.data.data;
             }
           });
-        }
+        // }
         
         
         // document.getElementsByClassName("container")[0].scrollTop = scrollTop;

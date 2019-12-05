@@ -36,15 +36,6 @@ export default {
       display: block;
       opacity: 1;
     }
-    img[lazy=loading] {
-      width: 40px;
-      height: 300px;
-      margin: auto;
-    }
-    img[lazy=loaded] {
-      width: 100%;
-      height: auto;
-    }
   }
   
 </style>

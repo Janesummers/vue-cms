@@ -142,7 +142,6 @@
           } else {
             this.goodsList_l.push(res.data.data[0]);
           }
-          // this.goodsList = res.data.data;
         }
       });
 

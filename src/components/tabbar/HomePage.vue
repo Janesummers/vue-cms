@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <swiper :data="banner" :auto="6000" />
+    <swiper :data="banner" :auto="0" />
     <div id="column">
       <ul class="mui-table-view mui-grid-view mui-grid-9" style="width:100%">
           <li tag="li" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
@@ -23,10 +23,13 @@
           </li>
           <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
             <img src="../../assets/img/menu4.png" alt="">
-            <div class="mui-media-body">留言反馈</div></a></li>
-          <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-            <img src="../../assets/img/menu5.png" alt="">
-            <div class="mui-media-body">视频专区</div></a>
+            <div class="mui-media-body">留言反馈</div></a>
+          </li>
+          <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+            <router-link to="/home/movieList">
+              <img src="../../assets/img/menu5.png" alt="">
+              <div class="mui-media-body">电影专区</div>
+            </router-link>
           </li>
           <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
             <img src="../../assets/img/menu6.png" alt="">
