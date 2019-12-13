@@ -10,7 +10,7 @@
     <div class="mainContent">
       <div v-html="newsInfo.content"></div>
     </div>
-    <Comment :id="$route.query.id" />
+    <Comment :id="$route.query.id" :btnText="'提交评论'" :hint="'评论内容'" />
   </div>
 </template>
 

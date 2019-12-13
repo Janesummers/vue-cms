@@ -2,8 +2,8 @@
   <div id="comment">
     <h4>发表评论</h4>
     <div class="commentContent">
-      <mt-field placeholder="评论内容" type="textarea" rows="4" v-model="content"></mt-field>
-      <mt-button type="danger" size="large" @click="addComment">提交评论</mt-button>
+      <mt-field :placeholder="hint" type="textarea" rows="4" v-model="content"></mt-field>
+      <mt-button type="danger" size="large" @click="addComment">{{btnText}}</mt-button>
     </div>
     <div v-if="list.length===0" class="comment-props">
         还没有评论，来发表第一篇评论吧！
@@ -50,10 +50,11 @@ import {Toast} from 'mint-ui'
         text : "加载更多",
         hintText: "释放更新",
         loading: true,
-        allow: false
+        allow: false,
+        type: 0
       }
     },
-    props:['id'],
+    props:['id', 'btnText', 'hint'],
     methods: {
       handleBottomChange(status) {
         this.bottomStatus = status;
@@ -111,7 +112,8 @@ import {Toast} from 'mint-ui'
             userId : this.$store.state.userInfo.userId,
             userName : this.$store.state.userInfo.username,
             content : this.content,
-            time : this.getTime()
+            time : this.getTime(),
+            type: this.type
           }
           this.list.unshift({
             user_name : this.$store.state.userInfo.username,
@@ -153,6 +155,9 @@ import {Toast} from 'mint-ui'
       if (userInfo) {
         this.allow = true;
         this.$store.state.userInfo = userInfo;
+      }
+      if (this.$route.path.includes('userComment')) {
+        this.type = 1;
       }
     } 
   }

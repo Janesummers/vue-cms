@@ -17,14 +17,13 @@ import Login from './components/user/login.vue';
 import GoodsPayed from './components/goods/GoodsPayed.vue';
 import movieList from './components/movie/movieList.vue';
 import movieInfo from './components/movie/movieInfo.vue';
+import userComment from './components/user/userComment.vue';
+import about from './components/about/about.vue';
 
 let routes = [
   {
     path: "/",
-    redirect: "/home",
-    meta: {
-      keepAlive: true
-    }
+    redirect: "/home"
   },
   {
     path: "/home",
@@ -91,6 +90,16 @@ let routes = [
     path: "/home/registed",
     component: registed,
     name:"registed"
+  },
+  {
+    path: "/home/userComment",
+    component: userComment,
+    name: "userComment"
+  },
+  {
+    path: "/home/about",
+    component: about,
+    name: "about"
   },
   {
     path: "/vip/login",

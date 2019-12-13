@@ -49,7 +49,8 @@
             uri: '/login',
             data: {
               name: this.username,
-              pwd: this.password
+              pwd: this.password,
+              rule: 'user'
             },
             callBack: (res) => {
               if (res.data.code === "ok") {

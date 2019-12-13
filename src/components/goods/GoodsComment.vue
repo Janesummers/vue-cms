@@ -1,7 +1,7 @@
 <template>
   <div id="GoodsComment">
     <mt-loadmore >
-      <Comment :id="list.id" />
+      <Comment :id="list.id" :btnText="'提交评论'" :hint="'评论内容'" />
     </mt-loadmore>
   </div>
 </template>

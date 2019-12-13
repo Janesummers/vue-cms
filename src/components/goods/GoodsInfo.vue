@@ -181,7 +181,8 @@
       this.$store.commit('postRequest', {
         uri: '/getImgs',
         data: {
-          belongId: data.id
+          belongId: data.id,
+          pageSize: 10
         },
         callBack: (res) => {
           this.banner = res.data.data;
