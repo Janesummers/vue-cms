@@ -109,10 +109,9 @@
 
             let getCar = () => {
               this.$store.commit('postRequest', {
-                uri: '/getMyGoods',
+                uri: '/getMyShopCart',
                 data: {
                   belongId: this.userInfo.userId,
-                  status: 0,
                   pageNo: 1,
                   pageSize: 10
                 },

@@ -102,10 +102,9 @@
       if (userInfo) {
         this.$store.state.userInfo = userInfo;
         this.$store.commit('postRequest', {
-          uri: '/getMyGoods',
+          uri: '/getMyShopCart',
           data: {
-            belongId: userInfo.userId,
-            status: 0
+            belongId: userInfo.userId
           },
           callBack: (res) => {
             res.body.data.forEach(item => item.choose = false);

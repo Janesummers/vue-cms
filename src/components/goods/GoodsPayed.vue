@@ -3,15 +3,22 @@
     <Loading v-if="loading" />
     <div class="shopList">
       <div class="shopItem" v-for="item in shopData" :key="item.id">
-        <div class="imgBox">
-          <img :src="item.img" alt="">
-        </div>
-        <div class="info">
-          <p class="title mui-ellipsis-2">{{item.title}}</p>
-          <div class="option">
-            <span class="price">￥{{item.price}}</span>
-            <span class="payNumber">×{{item.count}}</span>
+        <div class="items" v-for="(items, index) in item.list" :key="index">
+          <div class="imgBox">
+            <img :src="items.img" alt="">
           </div>
+          <div class="info">
+            <p class="title mui-ellipsis-2">{{items.name}}</p>
+            <div class="option">
+              <span class="price">￥{{items.price}}</span>
+              <span class="payNumber">×{{items.count}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="goodsOtherInfo">
+          <div class="allPrice">共 {{item.allCount}} 件商品 合计:￥<span>{{item.allPrice}}</span></div>
+          <div class="payTime">{{item.time}}</div>
+          <div class="payStatus">交易成功</div>
         </div>
       </div>
     </div>
@@ -36,11 +43,43 @@
       this.$store.commit('postRequest', {
         uri: '/getMyGoods',
         data: {
-          belongId: this.$store.state.userInfo.userId,
-          status: 1
+          belongId: this.$store.state.userInfo.userId
         },
         callBack: (res) => {
-          this.shopData = res.body.data;
+          let data = res.body.data;
+          let shopData = [];
+          let times = [];
+          data.forEach(item => times.push(item.time));
+          times = Array.from(new Set(times)).reverse();
+          
+          for (let i = 0; i < times.length; i++) {
+            let item = {
+              order_id: '',
+              allPrice: 0,
+              time: times[i],
+              allCount: 0,
+              list: []
+            };
+            for (let j = 0; j < data.length; j++) {
+              if (times[i] == data[j].time) {
+                if (item.list.length == 0) {
+                  item.order_id = data[j].order_id;
+                  item.allPrice = data[j].pay_money;
+                }
+                item.allCount += data[j].count;
+                item.list.push({
+                  name: data[j].name,
+                  price: data[j].price,
+                  img: data[j].img,
+                  count: data[j].count
+                })
+              }
+            }
+            shopData.push(item);
+          }
+          console.log(shopData)
+          
+          this.shopData = shopData;
           this.loading = false;
         }
       });
@@ -64,7 +103,34 @@
         justify-content: space-between;
         border-radius: 8px;
         overflow: hidden;
-        margin-bottom: 10px;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+        .goodsOtherInfo {
+          width: 100%;
+          font-size: 14px;
+          text-align: right;
+          line-height: 24px;
+          .allPrice {
+            span {
+              font-size: 17px;
+            }
+          }
+          .payTime {
+            color: #c0c0c0;
+          }
+          .payStatus {
+            color: #ef4f4e;
+          }
+        }
+        .items {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          margin-bottom: 10px;
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+        }
         &:last-of-type {
           margin-bottom: 0;
         }
@@ -87,7 +153,7 @@
           .title {
             font-size: 14px;
             color: #000;
-            width: calc(~"100% - 24px");
+            width: 100%;
             margin-bottom: 10px;
             line-height: 18px;
           }

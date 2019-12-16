@@ -44,7 +44,7 @@
         this.bottomStatus = status;
       },
       scrollListener () {
-        sessionStorage.setItem("scrollTop", document.getElementsByClassName("container")[0].scrollTop);
+        // sessionStorage.setItem("scrollTop", document.getElementsByClassName("container")[0].scrollTop);
       },
       loadBottom() {
         if (this.text !== "到底了") {
@@ -58,13 +58,15 @@
             },
             callBack: (res) => {
               if (res.data.data.length > 0) {
-                let newsList = JSON.parse(localStorage.getItem("newsList"));
+                // let newsList = JSON.parse(localStorage.getItem("newsList"));
+                let newsList = this.newsList;
                 res.data.data.forEach(item => {
-                  this.newsList.push(item);
-                  newsList.data.push(item);
+                  newsList.push(item);
+                  // newsList.data.push(item);
                 });
-                newsList.pageNo = this.pageNo;
-                localStorage.setItem("newsList", JSON.stringify(newsList));
+                this.newsList = newsList;
+                // newsList.pageNo = this.pageNo;
+                // localStorage.setItem("newsList", JSON.stringify(newsList));
               } else {
                 Toast({
                   message: '没有更多啦~',
@@ -166,8 +168,8 @@
       Loading
     },
     mounted() {
-      this.scrollBox = this.$refs.newsList;
-      this.scrollBox.addEventListener("scroll", this.scrollListener, false);
+      // this.scrollBox = this.$refs.newsList;
+      // this.scrollBox.addEventListener("scroll", this.scrollListener, false);
     }
   }
 </script>

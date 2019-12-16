@@ -64,13 +64,16 @@
         if (this.text !== "到底了") {
           this.pageNo += 1;
           this.$store.commit('postRequest', {
-            uri: '/getGoods',
+            uri: '/getMovie',
             data: {
-              pageNo: this.pageNo
+              pageNo: this.pageNo,
+              pageSize: 10
             },
             callBack: (res) => {
               if (res.data.data.length > 0) {
-                l.forEach(item => this.goodsList_l.push(item));
+                let movieList = this.movieList;
+                res.data.data.forEach(item => movieList.push(item));
+                this.movieList = movieList;
               } else {
                 this.text = "到底了";
                 this.hintText = "到底了";
@@ -104,7 +107,7 @@
         uri: '/getMovie',
         data: {
           pageNo: this.pageNo,
-          pageSize: 30
+          pageSize: 10
         },
         callBack: (res) => {
           this.movieList = res.body.data;

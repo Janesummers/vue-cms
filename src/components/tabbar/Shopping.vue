@@ -138,7 +138,8 @@
             uri: '/payForGoods',
             data: {
               belongId: this.$store.state.userInfo.userId,
-              list
+              list,
+              allPrice: this.allPrice
             },
             callBack: (res) => {
               this.$store.commit('getShopCar');

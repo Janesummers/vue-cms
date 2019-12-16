@@ -75,7 +75,7 @@ const store = new Vuex.Store({
     getShopCar (state) {
       state.userInfo = JSON.parse(localStorage.getItem("userInfo"));
       this.commit('postRequest', {
-        uri: '/getMyGoods',
+        uri: '/getMyShopCart',
         data: {
           belongId: state.userInfo.userId,
           status: 0,
