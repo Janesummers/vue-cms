@@ -11,7 +11,7 @@
  Target Server Version : 50724
  File Encoding         : 65001
 
- Date: 16/12/2019 22:02:12
+ Date: 20/12/2019 13:11:26
 */
 
 SET NAMES utf8mb4;
@@ -27,7 +27,7 @@ CREATE TABLE `card` (
   `goods_id` varchar(19) DEFAULT NULL,
   `count` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for comments
@@ -66,6 +66,9 @@ INSERT INTO `comments` VALUES ('2019121621564211849', '简夏', '2019年12月16�
 INSERT INTO `comments` VALUES ('2019121621565618828', '简夏', '2019年12月16日', 'ds\nd', '2019113010303618041', '2019081815131110951', 0);
 INSERT INTO `comments` VALUES ('2019121621572114173', '简夏', '2019年12月16日', 'fdfd', '2019120120055811033', '2019081815131110951', 0);
 INSERT INTO `comments` VALUES ('2019121621590316072', '简夏', '2019年12月16日', '反馈测试', '2019121621572812754', '2019081815131110951', 1);
+INSERT INTO `comments` VALUES ('2019121808195010534', 'PanGuitar', '2019年12月18日', '界面不够完美', '2019121808193919905', '2019120108445117444', 1);
+INSERT INTO `comments` VALUES ('2019121808200112132', 'PanGuitar', '2019年12月18日', '感觉还可以', '2019121808193919905', '2019120108445117444', 1);
+INSERT INTO `comments` VALUES ('2019121808204419085', 'dss', '2019年12月18日', '还不错哦', '2019121808203615200', '2019081816153118870', 1);
 COMMIT;
 
 -- ----------------------------
@@ -447,7 +450,7 @@ CREATE TABLE `goods` (
 -- Records of goods
 -- ----------------------------
 BEGIN;
-INSERT INTO `goods` VALUES ('2019120120055810183', 'http://gw.alicdn.com/bao/uploaded/i2/743520187/O1CN01FcFvB01DFgcfX0CHk_!!0-item_pic.jpg_500x500q90.jpg_.webp', '北欧创意时尚风灯金属样板房软装玻璃蜡烛台家居装饰品工艺品摆件', 58.8, 98.0, '热卖中', 83, '2019120120055812406');
+INSERT INTO `goods` VALUES ('2019120120055810183', 'http://gw.alicdn.com/bao/uploaded/i2/743520187/O1CN01FcFvB01DFgcfX0CHk_!!0-item_pic.jpg_500x500q90.jpg_.webp', '北欧创意时尚风灯金属样板房软装玻璃蜡烛台家居装饰品工艺品摆件', 58.8, 98.0, '热卖中', 63, '2019120120055812406');
 INSERT INTO `goods` VALUES ('2019120120055810464', 'http://gw.alicdn.com/bao/uploaded/i2/1939838347/TB26yzqXM1J.eBjy0FaXXaXeVXa_!!1939838347.jpg_500x500q90.jpg_.webp', '日本进口 波佐见烧白山陶器 森正洋 平茶碗 陶瓷饭碗汤碗日式餐具', 142.8, 238.0, '热卖中', 93, '2019120120055811113');
 INSERT INTO `goods` VALUES ('2019120120055810518', 'http://gw.alicdn.com/bao/uploaded/i3/212961950/TB2l8Gvd4uTBuNkHFNRXXc9qpXa_!!212961950.jpg_500x500q90.jpg_.webp', '【推荐】收集时光 立体磨砂玻璃杯水杯果汁杯 包邮 好质感！', 13.5, 22.5, '热卖中', 98, '2019120120055817497');
 INSERT INTO `goods` VALUES ('2019120120055810525', 'http://gw.alicdn.com/bao/uploaded/i3/2867785840/TB1yy5JXgjN8KJjSZFgXXbjbVXa_!!0-item_pic.jpg_500x500q90.jpg_.webp', '北欧日式可折叠小户型卧室客厅沙发床可拆洗布艺书房两用实木沙发', 828.0, 1380.0, '热卖中', 100, '2019120120055818383');
@@ -470,9 +473,10 @@ INSERT INTO `goods` VALUES ('2019120120055817546', 'http://gw.alicdn.com/bao/upl
 INSERT INTO `goods` VALUES ('2019120120055817893', 'http://gw.alicdn.com/bao/uploaded/i2/39094259/O1CN01hOGcr31hKfPnjPv6C_!!39094259.jpg_500x500q90.jpg_.webp', '日本三明治煎锅煎三明治模具蛋锅早餐锅双面不粘锅烤面包锅慧慧同', 53.4, 89.0, '热卖中', 100, '2019120120055813940');
 INSERT INTO `goods` VALUES ('2019120120055817907', 'http://gw.alicdn.com/bao/uploaded/i4/2121631359/O1CN011LuSiq4aAPNas3C_!!2121631359.jpg_500x500q90.jpg_.webp', '乐尚多功能碎菜器 家用手动蔬菜绞碎器 蒜肉搅碎机绞肉机饺子馅机', 27.0, 45.0, '热卖中', 100, '2019120120055810745');
 INSERT INTO `goods` VALUES ('2019120120055818331', 'http://gw.alicdn.com/bao/uploaded/i1/2452359127/O1CN01jXl9MS2HIDNRq9Zn3_!!0-item_pic.jpg_500x500q90.jpg_.webp', '摩登主妇日式厨房金属橱柜分层置物架隔层下挂架家用储物架整理架', 18.0, 30.0, '热卖中', 100, '2019120120055814770');
-INSERT INTO `goods` VALUES ('2019120120055818590', 'http://gw.alicdn.com/bao/uploaded/i1/66862613/O1CN01JWDUxs1VAnUm7GeDT_!!66862613-0-pixelsss.jpg_500x500q90.jpg_.webp', '天黑黑日系便携自动IT男雨伞长柄自动伞百搭时尚晴雨两用伞女', 47.4, 79.0, '热卖中', 97, '2019120120055813612');
+INSERT INTO `goods` VALUES ('2019120120055818590', 'http://gw.alicdn.com/bao/uploaded/i1/66862613/O1CN01JWDUxs1VAnUm7GeDT_!!66862613-0-pixelsss.jpg_500x500q90.jpg_.webp', '天黑黑日系便携自动IT男雨伞长柄自动伞百搭时尚晴雨两用伞女', 50.0, 79.0, '热卖中', 97, '2019120120055813612');
 INSERT INTO `goods` VALUES ('2019120120055818709', 'http://gw.alicdn.com/bao/uploaded/i4/238092107/O1CN01DgtOCQ1RR356q3CIL_!!0-item_pic.jpg_500x500q90.jpg_.webp', '6,8,10寸千层蛋糕班戟锅毛巾卷锅电磁炉煤气用不粘平底锅不粘煎锅', 22.9, 38.1, '热卖中', 100, '2019120120055818107');
 INSERT INTO `goods` VALUES ('2019120120055819670', 'http://gw.alicdn.com/bao/uploaded/i1/910707850/O1CN01ScIzuN27rLgyJjBGf_!!910707850-0-pixelsss.jpg_500x500q90.jpg_.webp', '北欧电视柜茶几组合 黑胡桃色可伸缩电视机柜 现代简约小户型地柜', 588.0, 980.0, '热卖中', 100, '2019120120055813475');
+INSERT INTO `goods` VALUES ('2019120916543413828', 'http://gw.alicdn.com/bao/uploaded/i4/409201288/TB2.AZdkpXXXXXoXpXXXXXXXXXX_!!409201288.jpg_500x500q90.jpg_.webp', 'zakka多层三层室内阳台多肉实木花架折叠户外无甲醛耐腐包邮', 121.0, 140.0, '热卖中', 100, '2019120916543412153');
 COMMIT;
 
 -- ----------------------------
@@ -513,14 +517,14 @@ COMMIT;
 DROP TABLE IF EXISTS `imgs`;
 CREATE TABLE `imgs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `belongId` varchar(19) DEFAULT NULL,
-  `src` varchar(255) DEFAULT NULL,
+  `belongId` varchar(19) NOT NULL,
+  `src` varchar(255) NOT NULL,
   `content_id` varchar(19) DEFAULT NULL,
   `title` varchar(40) DEFAULT NULL,
   `brief` varchar(255) DEFAULT NULL,
   `time` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1118 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=1334 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of imgs
@@ -1506,6 +1510,13 @@ INSERT INTO `imgs` VALUES (1114, '2019120120055810737', 'http://gd3.alicdn.com/i
 INSERT INTO `imgs` VALUES (1115, '2019120120055814652', 'https://img.alicdn.com/imgextra/i3/1051737231/TB2sTpEl3KTBuNkSne1XXaJoXXa_!!1051737231.jpg', NULL, NULL, NULL, NULL);
 INSERT INTO `imgs` VALUES (1116, '2019120120055814652', 'https://img.alicdn.com/imgextra/i3/1051737231/TB2y_VmlZuYBuNkSmRyXXcA3pXa_!!1051737231.jpg', NULL, NULL, NULL, NULL);
 INSERT INTO `imgs` VALUES (1117, '2019120120055814652', 'https://img.alicdn.com/imgextra/i1/1051737231/TB2CQYks25TBuNjSspmXXaDRVXa_!!1051737231.jpg', NULL, NULL, NULL, NULL);
+INSERT INTO `imgs` VALUES (1325, '2019120916543413828', 'http://img.alicdn.com/imgextra/i4/409201288/TB2.AZdkpXXXXXoXpXXXXXXXXXX_!!409201288.jpg_640x640q80_.webp', NULL, NULL, NULL, NULL);
+INSERT INTO `imgs` VALUES (1326, '2019120916543413828', 'http://img.alicdn.com/imgextra/i3/TB1yTyGpf6H8KJjy0FjYXGXepXa_M2.SS2_640x640q80_.webp', NULL, NULL, NULL, NULL);
+INSERT INTO `imgs` VALUES (1327, '2019120916543413828', 'http://img.alicdn.com/imgextra/i4/TB12n9oXoR1BeNjy0FmYXH0wVXa_M2.SS2_640x640q80_.webp', NULL, NULL, NULL, NULL);
+INSERT INTO `imgs` VALUES (1329, '2019120916543413828', 'https://img.alicdn.com/imgextra/i3/409201288/O1CN015356mW1LNwdC15lN5_!!409201288.png_1200x1200q75.jpg_.webp', NULL, NULL, NULL, NULL);
+INSERT INTO `imgs` VALUES (1330, '2019120916543412153', 'https://img.alicdn.com/imgextra/i4/409201288/O1CN01YyCHUp1LNwdDOZDqT_!!409201288.png_1200x1200q75.jpg_.webp', NULL, NULL, NULL, NULL);
+INSERT INTO `imgs` VALUES (1331, '2019120916543412153', 'https://img.alicdn.com/imgextra/i3/409201288/O1CN01zlgD151LNwdFNK14B_!!409201288.jpg_1200x1200q75.jpg_.webp', NULL, NULL, NULL, NULL);
+INSERT INTO `imgs` VALUES (1333, '2019120916543412153', 'http://img.alicdn.com/imgextra/i4/409201288/TB2.AZdkpXXXXXoXpXXXXXXXXXX_!!409201288.jpg_640x640q80_.webp', NULL, NULL, NULL, NULL);
 COMMIT;
 
 -- ----------------------------
@@ -2650,6 +2661,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 BEGIN;
 INSERT INTO `user` VALUES ('2019120510204516623', '1111', '1111', '111111', 0);
+INSERT INTO `user` VALUES ('2019122012271816376', '12344', 'kkkk', '123456', 0);
 INSERT INTO `user` VALUES ('2019081815131110951', '1875', '简夏', '123', 0);
 INSERT INTO `user` VALUES ('2019081816153118870', '18751', 'dss', '111111', 0);
 INSERT INTO `user` VALUES ('2019120810314714522', 'clq', 'janesummer', '123', 1);
