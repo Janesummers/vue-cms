@@ -26,7 +26,7 @@ export default {
 
 <style lang="less">
   #banner {
-    height: 200px;
+    height: 32%;
     margin: 10px;
     border-radius: 10px;
     overflow: hidden;

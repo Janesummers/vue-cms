@@ -1,24 +1,24 @@
 /* jshint esversion: 6 */
 import VueRouter from 'vue-router';
-import HomePage from './components/tabbar/HomePage.vue';
-import Vip from './components/tabbar/Vip.vue';
-import Shopping from './components/tabbar/Shopping.vue';
-import Search from './components/tabbar/Search.vue';
-import NewsList from './components/news/NewsList.vue';
-import NewsInfo from './components/news/NewsInfo.vue';
-import GoodsList from './components/goods/GoodsList.vue';
-import PictureShare from './components/picture/PictureShare.vue';
-import GoodsInfo from './components/goods/GoodsInfo.vue';
-import GoodsIntro from './components/goods/GoodsIntro.vue';
-import GoodsComment from './components/goods/GoodsComment.vue';
-import GoodsCount from './components/goods/GoodsCount.vue';
-import registed from './components/user/registed.vue';
-import Login from './components/user/login.vue';
-import GoodsPayed from './components/goods/GoodsPayed.vue';
-import movieList from './components/movie/movieList.vue';
-import movieInfo from './components/movie/movieInfo.vue';
-import userComment from './components/user/userComment.vue';
-import about from './components/about/about.vue';
+const HomePage = () => import('./components/tabbar/HomePage.vue');
+const Vip = () => import( './components/tabbar/Vip.vue');
+const Shopping = () => import( './components/tabbar/Shopping.vue');
+const Search = () => import( './components/tabbar/Search.vue');
+const NewsList = () => import( './components/news/NewsList.vue');
+const NewsInfo = () => import( './components/news/NewsInfo.vue');
+const GoodsList = () => import( './components/goods/GoodsList.vue');
+const PictureShare = () => import( './components/picture/PictureShare.vue');
+const GoodsInfo = () => import( './components/goods/GoodsInfo.vue');
+const GoodsIntro = () => import( './components/goods/GoodsIntro.vue');
+const GoodsComment = () => import( './components/goods/GoodsComment.vue');
+const GoodsCount = () => import( './components/goods/GoodsCount.vue');
+const registed = () => import( './components/user/registed.vue');
+const Login = () => import( './components/user/login.vue');
+const GoodsPayed = () => import( './components/goods/GoodsPayed.vue');
+const movieList = () => import( './components/movie/movieList.vue');
+const movieInfo = () => import( './components/movie/movieInfo.vue');
+const userComment = () => import( './components/user/userComment.vue');
+const about = () => import( './components/about/about.vue');
 
 let routes = [
   {

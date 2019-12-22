@@ -26,15 +26,26 @@
         :bottomPullText="text" 
         :bottomDropText="hintText" 
       >
-      <ul>
-        <li v-for="item in list" :key="item.id" @click="toContent(item.content_id, item.title)">
-          <img v-lazy="item.src" class="" >
-          <div class="text">
-            <p class="mui-ellipsis">{{item.title}}</p>
-            <p class="mui-ellipsis-2">{{item.brief.replace(item.title, "").slice(1)}}</p>
-          </div>
-        </li>
-      </ul>
+      <div class="list">
+        <ul>
+          <li v-for="item in r_data" :key="item.id" @click="toContent(item.content_id, item.title)">
+            <img v-lazy="item.src" class="" >
+            <div class="text">
+              <p class="mui-ellipsis">{{item.title}}</p>
+              <p class="mui-ellipsis">{{item.brief.replace(item.title, "").slice(1)}}</p>
+            </div>
+          </li>
+        </ul>
+        <ul>
+          <li v-for="item in l_data" :key="item.id" @click="toContent(item.content_id, item.title)">
+            <img v-lazy="item.src" class="" >
+            <div class="text">
+              <p class="mui-ellipsis">{{item.title}}</p>
+              <p class="mui-ellipsis">{{item.brief.replace(item.title, "").slice(1)}}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
       </mt-loadmore>
     </div>
   </div>
@@ -50,7 +61,8 @@
     data () {
       return {
         navigate:[],
-        list:[],
+        l_data:[],
+        r_data: [],
         allLoaded: false,
         bottomStatus: '',
         text : "加载更多",
@@ -77,7 +89,19 @@
             },
             callBack: (res) => {
               if (res.data.data.length > 0) {
-                res.data.data.forEach(item => this.list.push(item));
+                let list = JSON.parse(JSON.stringify(res.data.data));
+                let l_len = list.length > 1 ? list.length / 2 : 1;
+                if (l_len > 1) {
+                  list.slice(0, l_len).forEach(item => {
+                    this.l_data.push(item);
+                  })
+                  list.slice(l_len).forEach(item => {
+                    this.r_data.push(item);
+                  })
+                  // this.r_data = list.slice(l_len);
+                } else {
+                  this.l_data = list;
+                }
               } else {
                 this.text = "到底了";
                 this.hintText = "到底了";
@@ -105,7 +129,14 @@
           },
           callBack: (res) => {
             this.loading = false;
-            this.list = res.body.data;
+            let list = JSON.parse(JSON.stringify(res.body.data));
+            let l_len = list.length > 1 ? list.length / 2 : 1;
+            if (l_len > 1) {
+              this.l_data = list.slice(0, l_len);
+              this.r_data = list.slice(l_len);
+            } else {
+              this.l_data = list;
+            }
             this.text = "加载更多";
             this.hintText = "释放更新"; 
             this.pageNo = 1;
@@ -144,10 +175,8 @@
         data: {},
         callBack: (res) => {
           this.navigate = res.data.data;
-          // this.current = res.data.data[0].id;
-          this.current = "2019081818513312008";
-          // this.getData(res.data.data[0].id);
-          this.getData("2019081818513312008");
+          this.current = res.data.data[0].id;
+          this.getData(res.data.data[0].id);
           this.loading = false;
         }
       });
@@ -168,6 +197,16 @@
       background: #fff;
       top: 40px;
       box-shadow: 0px 1px 4px rgba(0,0,0,0.2);
+      .mui-segmented-control.mui-scroll-wrapper .mui-control-item {
+        padding: 0;
+      }
+      .mui-scroll {
+        width: 100%;
+        display: flex;
+        a {
+          flex: 1;
+        }
+      }
     }
     .nav-color {
       color: #a5a5a5;
@@ -177,29 +216,40 @@
     }
     .shareList {
       margin: 10px;
-      ul {
+      .list {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+      }
+      ul {
+        width: 48%;
+        display: flex;
+        // flex-wrap: wrap;
+        // justify-content: space-between;
+        align-items: baseline;
+        flex-direction: column;
+        &:last-of-type {
+          margin-left: 10px;
+        }
         li {
-          width: 48.5%;
+          width: 100%;
           position: relative;
           text-align: center;
           background: url("../../assets/img/loading2.gif") no-repeat center center, #fff;
           margin-bottom: 10px;
           border-radius: 10px;
           overflow: hidden;
-          min-height: 300px;
+          // max-height: 120px;
+          // min-height: 50px;
           // background: "fff";
-          &:nth-of-type(2n) {
-            margin-left: 10px;
-          }
+          // height: 190px;
+          
+         
+          height: auto;
           p {
             color: #fff;
           }
           img {
             width: 100%;
-            height: auto;
+            // height: auto;
           }
           .text {
             position: absolute;
