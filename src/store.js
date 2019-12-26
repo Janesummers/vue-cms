@@ -7,7 +7,7 @@ Vue.use(VueResource);
 const store = new Vuex.Store({
   state: {
     shopnum: 0,
-    origins: 'http://localhost:8080',
+    origins: `${window.origin}/api`,
     ballDisplay: false,
     pageTitle: "首页",
     shopData: [],

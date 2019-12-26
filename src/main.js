@@ -17,6 +17,8 @@ import vueResource from 'vue-resource';
 import VueRouter from 'vue-router';
 import router from './router.js';
 import store from './store.js';
+// import VConsole from 'vconsole';
+// var vConsole = new VConsole();
 
 
 Vue.use(MintUI);

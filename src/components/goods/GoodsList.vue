@@ -186,7 +186,6 @@
       .goodsInfo {
         width: 100%;
         overflow: hidden;
-        border-radius: 3px;
         margin-bottom: 14px;
         height: auto;
         background: #fff;
