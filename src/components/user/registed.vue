@@ -51,8 +51,8 @@
           Toast("请输入用户名")
         }else if(this.password ==""){
           Toast("请输入密码")
-        }else if(this.password.length<3){
-          Toast("密码太短，请输入3位以上")
+        }else if(this.password.length <= 5){
+          Toast("密码太短，请输入5位以上")
         }
         else if(this.password != this.passwprdConfirm){
           Toast("两次密码不一致")

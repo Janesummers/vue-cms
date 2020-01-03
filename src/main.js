@@ -17,8 +17,8 @@ import vueResource from 'vue-resource';
 import VueRouter from 'vue-router';
 import router from './router.js';
 import store from './store.js';
-// import VConsole from 'vconsole';
-// var vConsole = new VConsole();
+import VConsole from 'vconsole';
+var vConsole = new VConsole();
 
 
 Vue.use(MintUI);
@@ -33,4 +33,4 @@ let vm = new Vue({
   store
 }).$mount("#app");
 
-console.log(vm);
+// console.log(vm);

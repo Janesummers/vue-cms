@@ -194,9 +194,6 @@
 <style lang="less">
   #shop {
     background: #f0efef;
-    &.isData {
-      height: calc(~"100% - 140px") !important;
-    }
     .swithBtn {
       min-height: 100%;
       min-width: 20px;
