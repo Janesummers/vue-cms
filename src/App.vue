@@ -167,16 +167,16 @@
       position: fixed;
       left: 0;
     }
-    // .cut-page-enter {
-    //   left: 50%;
-    //   opacity: 0;
-    // }
-    // .cut-page-leave-to {
-    //   left: 0;
-    //   opacity: 1;
-    // }
-    // .cut-page-enter-active{
-    //   transition: all 0.5s ease-in;
-    // }
+    .cut-page-enter {
+      left: 50%;
+      opacity: 0;
+    }
+    .cut-page-leave-to {
+      left: 0;
+      opacity: 1;
+    }
+    .cut-page-enter-active{
+      transition: all 0.5s ease-in;
+    }
   }
 </style>
