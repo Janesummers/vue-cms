@@ -91,7 +91,7 @@
               data: {
                 belongId: this.userInfo.userId,
                 goodsId: this.goodsInfo.id,
-                count: this.payNumber,
+                count: Number(this.payNumber),
                 content_id: this.goodsInfo.content_id
               },
               callBack: (res) => {
@@ -142,7 +142,9 @@
       },
       plus (max) {
         if (this.payNumber < this.goodsInfo.left_count) {
-          this.payNumber += 1;
+          let num = Number(this.payNumber);
+          num += 1;
+          this.payNumber = num;
         } else {
           Toast({
             message: '不能再多了',
@@ -153,12 +155,14 @@
       },
       reduce () {
         if (this.payNumber > 1) {
-          this.payNumber -= 1;
+          let num = Number(this.payNumber);
+          num -= 1;
+          this.payNumber = num;
         }
       },
       checkMax (e) {
         if (parseInt(e.target.value) > this.goodsInfo.left_count) {
-          this.payNumber = this.goodsInfo.left_count;
+          this.payNumber = Number(this.goodsInfo.left_count);
         }
       }
     },
