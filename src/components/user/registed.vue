@@ -45,17 +45,23 @@
     methods:{
       
       reg(){
+        let regexp = {
+          'space': /\s/
+        }
         if(this.nick == ""){
           Toast("请输入昵称")
+        }else if(this.username.match(regexp.space)){
+          Toast("用户名存在非法字符")
         }else if(this.username ==""){
           Toast("请输入用户名")
         }else if(this.password ==""){
           Toast("请输入密码")
         }else if(this.password.length <= 5){
           Toast("密码太短，请输入5位以上")
-        }
-        else if(this.password != this.passwprdConfirm){
+        }else if(this.password != this.passwprdConfirm){
           Toast("两次密码不一致")
+        }else if(this.password.match(regexp.space)){
+          Toast("密码非法字符")
         }else{
           Indicator.open({
             text: '注册中...'

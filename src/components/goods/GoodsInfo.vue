@@ -164,6 +164,9 @@
         if (parseInt(e.target.value) > this.goodsInfo.left_count) {
           this.payNumber = Number(this.goodsInfo.left_count);
         }
+        if (parseInt(e.target.value) == 0 || e.target.value == "" || !e.target.value) {
+          this.payNumber = 1;
+        }
       }
     },
     components: {
